@@ -17,11 +17,17 @@ chat.addEventListener("submit", function (e) {
 async function postNewMsg(user, text) {
   // post to /poll a new message
   // write code here
+
+
+
 }
 
 async function getNewMsgs() {
   // poll the server
   // write code here
+  //
+
+  setTimeout(()=>getNewMsgs(),INTERVAL);
 }
 
 function render() {

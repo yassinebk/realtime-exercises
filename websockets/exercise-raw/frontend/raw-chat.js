@@ -1,3 +1,4 @@
+import path from "path";
 const chat = document.getElementById("chat");
 const msgs = document.getElementById("msgs");
 const presence = document.getElementById("presence-indicator");

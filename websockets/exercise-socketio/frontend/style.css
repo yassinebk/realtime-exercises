@@ -17,3 +17,16 @@ h1 {
   top: 5px;
   right: 15px;
 }
+
+.collection-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.inside-collection-item {
+  display: "flex";
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+}

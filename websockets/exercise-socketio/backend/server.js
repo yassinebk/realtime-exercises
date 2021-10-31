@@ -19,13 +19,31 @@ const server = http.createServer((request, response) => {
   });
 });
 
-/*
- *
- * Code goes here
- *
- */
+// websocket server init
+
+const io = new Server(server, (socket) => {});
+
+io.on("connection", (socket) => {
+  console.log(`connected ${socket.id}`);
+
+  socket.emit("msg:get", { msg: getMsgs() });
+
+  socket.on("msg:post", (data) => {
+    console.log("Received new Data", data);
+    msg.push({
+      ...data,
+      time: Date.now(),
+    });
+    socket.emit("msg:get", { msg: getMsgs() });
+  });
+});
+
+io.on("disconnect", () => {
+  console.log(`disconnected ${socket.id}`);
+});
 
 const port = process.env.PORT || 8080;
+
 server.listen(port, () =>
   console.log(`Server running at http://localhost:${port}`)
 );
